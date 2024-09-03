@@ -35,10 +35,20 @@ class MainActivity : AppCompatActivity() {
 
     //function for creating offline game
     fun createOfflineGame(){
+
+        //saving GameData inside the UI Of Application
+        GameData.saveGameModel(
+            GameModel(
+                //In the Offline mode, User will directly join the game and start game by clicked on Start Game Button
+                gameStatus =  GameStatus.JOINED
+            )
+        )
+
+        //calling startGame() to start the game
         startGame()
     }
 
-    //function for start the game
+    //function for start GameActivity
     fun startGame(){
 
         //calling GameActivity by intent
