@@ -44,6 +44,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 //        binding.btn7.setOnClickListener { this }
 //        binding.btn8.setOnClickListener { this }
 
+        //finding view that is button and setting onClickListener to it by passing this as reference above line of code is not fired setOnClickListener
         binding.btn0.setOnClickListener(this)
         binding.btn1.setOnClickListener(this)
         binding.btn2.setOnClickListener(this)
@@ -53,7 +54,6 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         binding.btn6.setOnClickListener(this)
         binding.btn7.setOnClickListener(this)
         binding.btn8.setOnClickListener(this)
-
 
 
         //clicked event on startGameBtn
@@ -90,6 +90,9 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             binding.btn7.text = filledPos[7]
             binding.btn8.text = filledPos[8]
 
+            //When GameActivity start, then startGameBtn is VISIBLE
+            binding.startGameBtn.visibility = View.VISIBLE
+
             //for updating the game status like who's turn, draw and who is win the game
             binding.gameStatusTV.text =
 
@@ -98,6 +101,9 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
                     //when gameStatus is CREATED, we return
                     GameStatus.CREATED -> {
+
+                        //When GameStatus is CREATED then Visibility of startGameBtn is INVISIBLE
+                        binding.startGameBtn.visibility = View.INVISIBLE
 
                         //if game is CREATED then show Id of the game
                         "Game Id :"+ gameId
@@ -110,6 +116,10 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                     }
                     //if gameStatus is INPROGESS
                     GameStatus.INPROGESS -> {
+
+                        //When GameStatus is INPROGESS then setting Visibility of startGameBtn is INVISIBLE
+                        binding.startGameBtn.visibility = View.INVISIBLE
+
                         //Then return currentPlayer that "X" or may be "O" and return String as well
                         currentPlayer + " It's Your"
                     }
@@ -166,6 +176,9 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                 //if playerA clicked and it's "X" then switch the PlayerB to "O"
                 currentPlayer = if (currentPlayer == "X") "O" else "X"
 
+                //calling checkWinner(), everytime to check for the winner
+                checkForWinner()
+
                 //every time button clicked, let's update the GameData for that calling updateGameData
                 updateGameData(this)
             }
@@ -178,5 +191,49 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
     fun updateGameData(model: GameModel) {
         //form here, getting the updateGameData from saveGameModel method of GameData class
         GameData.saveGameModel(model)
+    }
+
+    //fun for checking who's is winner of the match
+    fun checkForWinner(){
+
+        //getting all winning position in winningPos variable in the format of arraylist
+        val winningPos = arrayOf(
+            intArrayOf(0,1,2),
+            intArrayOf(3,4,5),
+            intArrayOf(6,7,8),
+            intArrayOf(0,3,6),
+            intArrayOf(1,4,7),
+            intArrayOf(2,5,8),
+            intArrayOf(0,4,8),
+            intArrayOf(2,4,6)
+        )
+
+        gameModel?.apply {
+
+            for (i in winningPos){
+
+                //for the position 0,1,2 suppose
+                if (
+                    //if filledPos is 0,1,2 and its not empty
+                    filledPos[i[0]] == filledPos[i[1]] &&
+                    filledPos[i[1]] == filledPos[i[2]] &&
+                    filledPos[i[0]].isNotEmpty())
+                    {
+                        //gameStatus is finished and declaring the winner inside winner variable
+                        gameStatus = GameStatus.FINISHED
+                        //for the 0,1,2 position
+                        winner = filledPos[i[0]]
+                    }
+            }
+
+           //if none of the filledPos is empty
+          if (filledPos.none(){it.isEmpty()}){
+              //gameStatus will be FINISHED and winner will not be decide because there is no any winner matching with position
+              gameStatus = GameStatus.FINISHED
+          }
+
+            //and here we update the winner of the match in the GameStatus view
+            updateGameData(this)
+        }
     }
 }
