@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "86622724871",
+    "project_id": "multi-player-xo-game",
+    "storage_bucket": "multi-player-xo-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86622724871:android:5a3f56770ea4bae767dba2",
+        "android_client_info": {
+          "package_name": "com.example.multi_playerxogame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-qcQ2jQOFyTgd2RBEaGOqlyBWPyH4rx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

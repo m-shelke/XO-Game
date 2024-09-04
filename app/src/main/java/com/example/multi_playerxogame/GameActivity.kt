@@ -44,6 +44,9 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 //        binding.btn7.setOnClickListener { this }
 //        binding.btn8.setOnClickListener { this }
 
+        //calling fetchGameModel() form the GameData and what ever happen in data it gonna reflate to the UI
+        GameData.fetchGameModel()
+
         //finding view that is button and setting onClickListener to it by passing this as reference above line of code is not fired setOnClickListener
         binding.btn0.setOnClickListener(this)
         binding.btn1.setOnClickListener(this)
@@ -120,13 +123,27 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                         //When GameStatus is INPROGESS then setting Visibility of startGameBtn is INVISIBLE
                         binding.startGameBtn.visibility = View.INVISIBLE
 
-                        //Then return currentPlayer that "X" or may be "O" and return String as well
-                        currentPlayer + " It's Your"
+                        when(GameData.myID){
+                            //it's myID then display it's "Your Turn"
+                            currentPlayer -> "Your Turn"
+
+                            //Then return currentPlayer that "X" or may be "O" and return String as well
+                            else -> currentPlayer +" Turn"
+                        }
+
                     }
                     //if GameStatus is Finished then, we gonna check the Winner of the game
                     GameStatus.FINISHED -> {
+
                         //if winner is not empty then show the winner won the match otherwise match get tie
-                        if (winner.isNotEmpty()) winner + " Won"
+                        if (winner.isNotEmpty()){
+                            //GameData and its my id then i won the match
+                            when(GameData.myID){
+                                winner -> "You Won"
+                                //else 8opponent won the match
+                                else -> winner + " Won"
+                            }
+                        }
                         //else Match tie
                         else " Match Tie..."
                     }
@@ -163,6 +180,10 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                 return
             }
             //else if gameStatus is INPROGESS then..
+            if (gameId != "-1" && currentPlayer != GameData.myID){
+                Toast.makeText(applicationContext, "Not Your Turn..", Toast.LENGTH_SHORT).show()
+                return
+            }
 
             //we have the View in the clicked method and we already defines the tags in the xml.layout, we get it as String and store to the variable
             var clicekdPos = (v?.tag as String).toInt()
