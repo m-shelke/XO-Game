@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -15,27 +16,37 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/letter_x"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Wel-come To The"
-            android:textAlignment="center"
-            android:textColor="#D50000"
-            android:textSize="18dp"
+            android:text="v/s"
+            android:layout_marginEnd="6dp"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:layout_gravity="center_vertical"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="World Of Star And Moon"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/letter_o"/>
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="World Of Star And Moon"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold" />-->
 
 
     </LinearLayout>
@@ -45,7 +56,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
-        android:backgroundTint="#00000000"
         android:elevation="10dp"
         android:outlineSpotShadowColor="@color/white"
         android:padding="8dp"
@@ -67,7 +77,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
-        android:backgroundTint="#00000000"
         android:elevation="10dp"
         android:outlineSpotShadowColor="@color/white"
         android:padding="8dp"
@@ -123,7 +132,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
-        android:backgroundTint="#00000000"
         android:elevation="10dp"
         android:outlineSpotShadowColor="@color/white"
         android:padding="8dp"

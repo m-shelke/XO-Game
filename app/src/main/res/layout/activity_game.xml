@@ -6,160 +6,286 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".GameActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="25dp"
-        android:padding="8dp"
-        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gameStatusTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="....................."
+                android:gravity="center"
+                android:textSize="25dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:letterSpacing="0.00"/>
+
+
+            <!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Wel-come To The"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:padding="8dp"-->
+<!--                android:textColor="#D50000"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="World Of Star And Moon"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16dp"-->
+<!--                android:padding="8dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black" />-->
+
+        </LinearLayout>
 
 
 
-        <TextView
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:columnCount="3">
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn0"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:tag="0"/>-->
+
+                <Button
+                    android:id="@+id/btn0"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="0"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn1"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:tag="1"/>-->
+
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="1"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn2"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:tag="2"/>-->
+
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="2"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn3"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:tag="3"/>-->
+
+                <Button
+                    android:id="@+id/btn3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="3"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn4"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:tag="4"/>-->
+
+                <Button
+                    android:id="@+id/btn4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="4"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn5"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:tag="5"/>-->
+
+                <Button
+                    android:id="@+id/btn5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="5"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn6"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:tag="6"/>-->
+
+                <Button
+                    android:id="@+id/btn6"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="6"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn7"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:tag="7"/>-->
+
+                <Button
+                    android:id="@+id/btn7"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="7"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn8"-->
+<!--                    android:width="100dp"-->
+<!--                    android:height="100dp"-->
+<!--                    android:layout_margin="6dp"-->
+<!--                    android:textSize="60sp"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:tag="8"/>-->
+
+                <Button
+                    android:id="@+id/btn8"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="10dp"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:tag="8"
+                    android:textSize="60sp"
+                    android:textColor="@color/white"/>
+
+
+            </GridLayout>
+
+        <Button
+            android:id="@+id/startGameBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wel-come To The"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:textAlignment="center"
-            android:padding="8dp"
-            android:textColor="#D50000"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="World Of Star And Moon"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:padding="8dp"
-            android:textAlignment="center"
-            android:textColor="@color/black" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/gameStatusTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="....................."
-        android:gravity="center"
-        android:textSize="25dp"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        android:letterSpacing="0.00"/>
-
-
-
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:text="Start Game"
             android:layout_marginTop="50dp"
-            android:columnCount="3">
-
-            <Button
-                android:id="@+id/btn0"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:textSize="60sp"
-                android:text=""
-                android:textColor="@color/white"
-                android:tag="0"/>
-
-            <Button
-                android:id="@+id/btn1"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="60sp"
-                android:tag="1"/>
-
-            <Button
-                android:id="@+id/btn2"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:textSize="60sp"
-                android:text=""
-                android:textColor="@color/white"
-                android:tag="2"/>
-
-            <Button
-                android:id="@+id/btn3"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="60sp"
-                android:tag="3"/>
-
-            <Button
-                android:id="@+id/btn4"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:textSize="60sp"
-                android:text=""
-                android:textColor="@color/white"
-                android:tag="4"/>
-
-            <Button
-                android:id="@+id/btn5"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:textSize="60sp"
-                android:text=""
-                android:textColor="@color/white"
-                android:tag="5"/>
-
-            <Button
-                android:id="@+id/btn6"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:textSize="60sp"
-                android:text=""
-                android:textColor="@color/white"
-                android:tag="6"/>
-
-            <Button
-                android:id="@+id/btn7"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:textSize="60sp"
-                android:text=""
-                android:textColor="@color/white"
-                android:tag="7"/>
-
-            <Button
-                android:id="@+id/btn8"
-                android:width="100dp"
-                android:height="100dp"
-                android:layout_margin="6dp"
-                android:textSize="60sp"
-                android:text=""
-                android:textColor="@color/white"
-                android:tag="8"/>
-
-        </GridLayout>
-
-    <Button
-        android:id="@+id/startGameBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Game"
-        android:layout_margin="25dp"
-        android:layout_gravity="center"
-        android:textStyle="bold"/>
+            android:layout_gravity="center"
+            android:textStyle="bold"/>
 
 </LinearLayout>
