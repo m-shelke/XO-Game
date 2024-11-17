@@ -115,7 +115,7 @@
             android:id="@+id/gameIdEd"
             android:layout_width="200dp"
             android:layout_gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:inputType="number"/>
 
     </com.google.android.material.textfield.TextInputLayout>

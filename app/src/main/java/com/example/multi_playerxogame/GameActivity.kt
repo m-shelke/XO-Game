@@ -75,6 +75,11 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             setItUI()
         }
 
+        binding.btShare.setOnClickListener{
+
+            binding.btShare.visibility = View.INVISIBLE 
+        }
+
     }
 
     //fun for setting UI and Data
@@ -108,14 +113,18 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                         //When GameStatus is CREATED then Visibility of startGameBtn is INVISIBLE
                         binding.startGameBtn.visibility = View.INVISIBLE
 
+//                        setting visibility of the btShare Button to VISIBLE
+                        binding.btShare.visibility = View.VISIBLE
+
                         //if game is CREATED then show Id of the game
                         "Game Id :"+ gameId
                     }
 
                     //when gameStatus is JOINED
                     GameStatus.JOINED -> {
-                        //if game is Joined then show this Stritng in the gameStatusTv
+                        //if game is Joined then show this String in the gameStatusTv
                         "Clicked On 'Start Game Button'"
+
                     }
                     //if gameStatus is INPROGESS
                     GameStatus.INPROGESS -> {

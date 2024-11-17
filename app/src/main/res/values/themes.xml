@@ -5,5 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.MultiPlayerXOGame" parent="Theme.AppCompat.NoActionBar" />
+<!--    This is the Theme of the Application, applied to all Activity -->
+    <style name="Theme.MultiPlayerXOGame" parent="Theme.AppCompat.NoActionBar">
+<!--        Hiding App Bar form the App Screen-->
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>

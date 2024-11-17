@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
-//making GameData class as obj
+//making GameData class as obj and Storing all game data
 object GameData {
 
     //we get MutableLiveData in gameModel variable to show the opponent user

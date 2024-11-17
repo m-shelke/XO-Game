@@ -7,27 +7,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
+    android:gravity="center_vertical"
     tools:context=".GameActivity">
 
-
+<!-- LinearLayout with just a single TextView-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="160dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/gameStatusTV"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="....................."
+                android:text=""
                 android:gravity="center"
                 android:textSize="25dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:layout_margin="10dp"
                 android:letterSpacing="0.00"/>
+
+            <ImageButton
+                android:id="@+id/btShare"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_videogame_asset_24"/>
 
 
             <!--            <TextView-->
@@ -53,7 +61,7 @@
         </LinearLayout>
 
 
-
+<!-- GridLayout having 9 Button in Horizontal and Vertical format-->
             <GridLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,6 +80,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:tag="0"/>-->
 
+<!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn0"
                     android:layout_width="100dp"
@@ -97,7 +106,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:textSize="60sp"-->
 <!--                    android:tag="1"/>-->
-
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn1"
                     android:layout_width="100dp"
@@ -124,6 +133,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:tag="2"/>-->
 
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn2"
                     android:layout_width="100dp"
@@ -150,6 +160,7 @@
 <!--                    android:textSize="60sp"-->
 <!--                    android:tag="3"/>-->
 
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn3"
                     android:layout_width="100dp"
@@ -176,6 +187,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:tag="4"/>-->
 
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn4"
                     android:layout_width="100dp"
@@ -202,6 +214,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:tag="5"/>-->
 
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn5"
                     android:layout_width="100dp"
@@ -228,6 +241,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:tag="6"/>-->
 
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn6"
                     android:layout_width="100dp"
@@ -254,6 +268,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:tag="7"/>-->
 
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn7"
                     android:layout_width="100dp"
@@ -280,6 +295,7 @@
 <!--                    android:textColor="@color/white"-->
 <!--                    android:tag="8"/>-->
 
+                <!--                Button:1 Of the GridLayout -->
                 <Button
                     android:id="@+id/btn8"
                     android:layout_width="100dp"
@@ -298,6 +314,7 @@
 
             </GridLayout>
 
+    <!--                Button for start and resetting game over again -->
         <Button
             android:id="@+id/startGameBtn"
             android:layout_width="wrap_content"
