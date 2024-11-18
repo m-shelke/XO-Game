@@ -1,11 +1,14 @@
 package com.example.multi_playerxogame
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.multi_playerxogame.databinding.ActivityGameBinding
@@ -113,6 +116,17 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
                     //when gameStatus is CREATED, we return
                     GameStatus.CREATED -> {
+
+//        if the permission is not granted, then request for the permission and the define in the arrayOf Manifest
+                        if (ActivityCompat.checkSelfPermission(this@GameActivity,Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED){
+//                            if the permission is not granted, then explicitly requesting the permission
+                            ActivityCompat.requestPermissions(this@GameActivity, arrayOf(Manifest.permission.SEND_SMS,Manifest.permission.RECEIVE_SMS),111)
+                        }
+
+
+
+
+
 
                         //When GameStatus is CREATED then Visibility of startGameBtn is INVISIBLE
                         binding.startGameBtn.visibility = View.INVISIBLE
