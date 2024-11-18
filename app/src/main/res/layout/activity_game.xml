@@ -6,36 +6,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black"
     android:gravity="center_vertical"
+    android:background="@color/black"
     tools:context=".GameActivity">
+
 
 <!-- LinearLayout with just a single TextView-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
+<!--            TextVie for showing the Status of the Current or Ongoing Game-->
             <TextView
                 android:id="@+id/gameStatusTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:gravity="center"
+                android:text=" "
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
                 android:textSize="25dp"
-                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
                 android:textStyle="bold"
                 android:layout_margin="10dp"
                 android:letterSpacing="0.00"/>
 
+<!--            TextView for displaying randomly generated game Id-->
+            <TextView
+                android:id="@+id/gameIdTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textSize="25dp"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:letterSpacing="0.00"/>
+
+<!--            ImageButton for sharing the Button click-->
             <ImageButton
                 android:id="@+id/btShare"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:visibility="gone"
+                android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
-                android:src="@drawable/baseline_videogame_asset_24"/>
+                android:src="@drawable/baseline_share_24"/>
 
 
             <!--            <TextView-->
@@ -65,7 +83,7 @@
             <GridLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:padding="10dp"
                 android:layout_marginTop="10dp"
                 android:columnCount="3">
@@ -320,8 +338,114 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start Game"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:layout_gravity="center"
             android:textStyle="bold"/>
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardView"-->
+<!--        android:layout_width="228dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardMaxElevation="10dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:cardUseCompatPadding="true"-->
+<!--        android:visibility="visible"-->
+<!--        android:outlineSpotShadowColor="#B39DDB"-->
+<!--        android:outlineProvider="bounds"-->
+<!--        app:cardPreventCornerOverlap="true"-->
+<!--        app:cardElevation="5dp"-->
+<!--        app:cardBackgroundColor="@android:color/transparent"-->
+<!--        app:cardCornerRadius="10dp">-->
+
+
+        <!-- LinearLayout with just a single TextView-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:orientation="horizontal">-->
+
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/btShare"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:src="@drawable/baseline_videogame_asset_24"/>-->
+
+<!--       </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="228dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:orientation="horizontal">-->
+
+<!--    LinearLayout: that contain 1 TextInputLayout and 1 Sending Button-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+<!--     TextInputLayout for getting Phone Number for the user-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter Phone Number"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textAlignment="center"
+            app:boxCornerRadiusTopStart="8dp"
+            app:hintTextColor="@color/white"
+            app:errorTextAppearance="@color/black"
+            app:errorTextColor="@color/black"
+            app:startIconDrawable="@drawable/baseline_keyboard_24">
+
+<!--            EditText for Phone Number -->
+            <EditText
+                android:id="@+id/gameIdEd"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="48dp"
+                android:inputType="number"/>
+
+
+    <!--                Button for sending the randomly generated Game ID to enter Phone Number -->
+            <Button
+                android:id="@+id/btSend"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Send ID"
+                android:textAlignment="center"
+                android:drawableStart="@drawable/baseline_send_24"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <!--        </LinearLayout>-->
+
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/btSend"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:src="@drawable/baseline_send_24" />-->
 
 </LinearLayout>

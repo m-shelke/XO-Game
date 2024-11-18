@@ -1,5 +1,6 @@
 package com.example.multi_playerxogame
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -76,13 +77,16 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         }
 
         binding.btShare.setOnClickListener{
-
-            binding.btShare.visibility = View.INVISIBLE 
+//            setting visibility of the btShare Button Visible to Invisible
+            binding.btShare.visibility = View.INVISIBLE
+//            setting visibility of LinearLayout Invisible to Visible
+            binding.linearLayout.visibility = View.VISIBLE
         }
 
     }
 
     //fun for setting UI and Data
+    @SuppressLint("SetTextI18n")
     fun setItUI() {
 
         gameModel?.apply {
@@ -117,11 +121,18 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                         binding.btShare.visibility = View.VISIBLE
 
                         //if game is CREATED then show Id of the game
-                        "Game Id :"+ gameId
+                        binding.gameStatusTV.setText("Game ID : $gameId")   //"Game Id : $gameId"
+
+//                        Setting randomly generated Game ID to gameIdTV
+                        gameId.also { binding.gameIdTV.text = "Game ID : " +it }
                     }
 
                     //when gameStatus is JOINED
                     GameStatus.JOINED -> {
+
+//                  setting visibility of Game Status TextView Invisible to Visible
+                        binding.gameStatusTV.visibility = View.VISIBLE
+
                         //if game is Joined then show this String in the gameStatusTv
                         "Clicked On 'Start Game Button'"
 
