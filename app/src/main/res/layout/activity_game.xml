@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text=" "
                 android:textSize="25dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 android:textStyle="bold"
                 android:letterSpacing="0.00"/>
 
@@ -51,7 +51,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:visibility="gone"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center_horizontal"
                 android:background="@android:color/transparent"
                 android:src="@drawable/baseline_share_24"/>
 

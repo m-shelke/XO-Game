@@ -1,12 +1,15 @@
 package com.example.multi_playerxogame
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.media.MediaParser
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.multi_playerxogame.databinding.ActivityMainBinding
@@ -24,6 +27,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        //                           if the permission is not granted, then request for the permission and the define in the arrayOf Manifest
+        if (ActivityCompat.checkSelfPermission(this@MainActivity,Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED){
+            //                            if the permission is not granted, then explicitly requesting the permission
+            ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.SEND_SMS,Manifest.permission.RECEIVE_SMS),PackageManager.PERMISSION_GRANTED)
+        }
+
         //inflating xml.layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         //binding root of the xml.layout
@@ -36,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         //handling clicked event on playOfflineBtn
         binding.playOfflineBtn.setOnClickListener {
+//            calling createOfflineGame() method
             createOfflineGame()
         }
 
@@ -47,6 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         //handling clicked event on joinOnlinGameeBtn
         binding.joinOnlineBtn.setOnClickListener {
+
+            //                           if the permission is not granted, then request for the permission and the define in the arrayOf Manifest
+            if (ActivityCompat.checkSelfPermission(this@MainActivity,Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED){
+                //                            if the permission is not granted, then explicitly requesting the permission
+                ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.SEND_SMS,Manifest.permission.RECEIVE_SMS),PackageManager.PERMISSION_GRANTED)
+            }
+
             //calling joinOnlineGames() method to join the game
             joinOnlineGames()
         }
