@@ -11,37 +11,65 @@
     tools:context=".GameActivity">
 
 
+
+
 <!-- LinearLayout with just a single TextView-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
-<!--            TextVie for showing the Status of the Current or Ongoing Game-->
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/spaceImg"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:visibility="visible"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:background="@android:color/transparent"/>-->
+
+
+            <!--            TextVie for showing the Status of the Current or Ongoing Game-->
             <TextView
                 android:id="@+id/gameStatusTV"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" "
-                android:textAlignment="center"
-                android:gravity="center_horizontal"
+                android:text="Game Status "
                 android:textSize="25dp"
                 android:visibility="gone"
+                android:textAlignment="center"
                 android:layout_gravity="center_horizontal"
                 android:textStyle="bold"
-                android:layout_margin="10dp"
                 android:letterSpacing="0.00"/>
 
-<!--            TextView for displaying randomly generated game Id-->
+<!--            LinearLayout: that contain 2 ImageButton and 1 TextView-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+<!--                ImageButton for Adding some extra space from left side-->
+                <ImageButton
+                    android:id="@+id/spaceImg"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"/>
+
+
+                <!--            TextView for displaying randomly generated game Id-->
             <TextView
                 android:id="@+id/gameIdTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" "
+                android:text=" Helsj"
+                android:textAlignment="center"
+                android:visibility="gone"
                 android:textSize="25dp"
-                android:layout_gravity="center_vertical"
                 android:textStyle="bold"
                 android:letterSpacing="0.00"/>
 
@@ -54,6 +82,9 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@android:color/transparent"
                 android:src="@drawable/baseline_share_24"/>
+
+            </LinearLayout>
+
 
 
             <!--            <TextView-->

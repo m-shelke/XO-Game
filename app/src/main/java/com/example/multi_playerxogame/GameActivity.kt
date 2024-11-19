@@ -68,6 +68,8 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         binding.startGameBtn.setOnClickListener {
             //called startGame() fun to start the game
             startGame()
+//            setting visibility of linearLayout Phone Number InputTextLayout INVISIBLE
+            binding.linearLayout.visibility = View.INVISIBLE
         }
 
         //observing live game data
@@ -82,7 +84,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
 //        clicked event on btShare Button
         binding.btShare.setOnClickListener{
-//            setting visibility of the btShare Button Visible to Invisible
+//            setting visibility of the btShare Invisible
             binding.btShare.visibility = View.INVISIBLE
 //            setting visibility of LinearLayout Invisible to Visible
             binding.linearLayout.visibility = View.VISIBLE
@@ -92,6 +94,8 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         binding.btSendMessage.setOnClickListener {
 //            calling sendMessage() method
             sendMessage()
+//            setting startGameBtn Button visibility INVISIBLE TO VISIBLE
+            binding.startGameBtn.visibility = View.VISIBLE
         }
 
     }
@@ -113,7 +117,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             binding.btn7.text = filledPos[7]
             binding.btn8.text = filledPos[8]
 
-            //When GameActivity start, then startGameBtn is VISIBLE
+            //When GameActivity start, then startGameBtn Button visibility is VISIBLE
             binding.startGameBtn.visibility = View.VISIBLE
 
             //for updating the game status like who's turn, draw and who is win the game
@@ -133,15 +137,11 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
                         }
 
-
-
-
-
-
                         //When GameStatus is CREATED then Visibility of startGameBtn is INVISIBLE
-                        binding.startGameBtn.visibility = View.INVISIBLE
-
-//                        setting visibility of the btShare Button to VISIBLE
+                        binding.startGameBtn.visibility = View.GONE
+//                      When GameStatus is CREATED then Visibility of gameIdTV is VISIBLE
+                        binding.gameIdTV.visibility = View.VISIBLE
+//                      When GameStatus is CREATED then Visibility of startGameBtn is INVISIBLE
                         binding.btShare.visibility = View.VISIBLE
 
                         //if game is CREATED then show Id of the game
@@ -156,16 +156,28 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
 //                  setting visibility of Game Status TextView Invisible to Visible
                         binding.gameStatusTV.visibility = View.VISIBLE
+                        //When GameStatus is JOINED then Visibility of gameIdTV is GONE
+                        binding.gameIdTV.visibility = View.GONE
 
-                        //if game is Joined then show this String in the gameStatusTv
+                        //if game is Joined then show this String in the gameStatusTv TextView
                         "Clicked On 'Start Game Button'"
 
                     }
                     //if gameStatus is INPROGESS
                     GameStatus.INPROGESS -> {
 
-                        //When GameStatus is INPROGESS then setting Visibility of startGameBtn is INVISIBLE
+
+//                      When gameStatus is INPROGRSS, setting visibility of the btShare Button to VISIBLE
+                        binding.btShare.visibility = View.VISIBLE
+
+//                        When GameStatus is INPROGESS then setting Visibility of startGameBtn is INVISIBLE
                         binding.startGameBtn.visibility = View.INVISIBLE
+                        //When GameStatus is INPROGESS then setting Visibility of btShare is VISIBLE
+                        binding.btShare.visibility = View.INVISIBLE
+                        //When GameStatus is INPROGESS then setting Visibility of gameIdTV is INVISIBLE
+                        binding.gameIdTV.visibility = View.INVISIBLE
+                        //When GameStatus is INPROGESS then setting Visibility of gameStatusTV is VISIBLE
+                        binding.gameStatusTV.visibility = View.VISIBLE
 
                         when(GameData.myID){
                             //it's myID then display it's "Your Turn"
@@ -178,6 +190,8 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                     }
                     //if GameStatus is Finished then, we gonna check the Winner of the game
                     GameStatus.FINISHED -> {
+
+                        binding.gameStatusTV.visibility = View.VISIBLE
 
                         //if winner is not empty then show the winner won the match otherwise match get tie
                         if (winner.isNotEmpty()){

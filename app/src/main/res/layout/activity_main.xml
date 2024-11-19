@@ -114,9 +114,9 @@
         <EditText
             android:id="@+id/gameIdEd"
             android:layout_width="200dp"
-            android:layout_gravity="center"
             android:layout_height="48dp"
-            android:inputType="number"/>
+            android:layout_gravity="center_horizontal"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -145,5 +145,19 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textStyle="bold" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/edMessage"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:inputType="text"-->
+<!--        android:hint="Enter Message"-->
+<!--        android:lines="1"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColorHint="@color/white" />-->
+
 
 </LinearLayout>
