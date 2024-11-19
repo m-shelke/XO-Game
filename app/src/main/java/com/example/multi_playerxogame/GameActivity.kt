@@ -3,6 +3,7 @@ package com.example.multi_playerxogame
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.view.View
@@ -16,6 +17,10 @@ import com.example.multi_playerxogame.databinding.ActivityGameBinding
 
 //implementing onClickListener to handle button click events
 class GameActivity : AppCompatActivity(),View.OnClickListener {
+
+//    initiating MediaPlayer class
+    lateinit var mediaPlayer: MediaPlayer
+
 
     //gameModel is instance of the GameModel class and assigned it as a null for to get the that class gameModel mutableLiveData
     private var gameModel: GameModel? = null
@@ -94,6 +99,12 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         binding.btSendMessage.setOnClickListener {
 //            calling sendMessage() method
             sendMessage()
+
+//          calling media file
+            mediaPlayer = MediaPlayer.create(this,R.raw.message_audio)
+//            starting media that is audio
+            mediaPlayer.start()
+
 //            setting startGameBtn Button visibility INVISIBLE TO VISIBLE
             binding.startGameBtn.visibility = View.VISIBLE
         }
@@ -191,6 +202,9 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                     //if GameStatus is Finished then, we gonna check the Winner of the game
                     GameStatus.FINISHED -> {
 
+//                        calling audio() function here
+                        audio()
+
                         binding.gameStatusTV.visibility = View.VISIBLE
 
                         //if winner is not empty then show the winner won the match otherwise match get tie
@@ -278,10 +292,16 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
                 //every time button clicked, let's update the GameData for that calling updateGameData
                 updateGameData(this)
+
             }
 
         }
 
+        //        MediaPlayer class for playing background audio, on Button clicked
+        mediaPlayer = MediaPlayer.create(this,R.raw.btn_click)
+
+//        Button clicked Audio start here
+        mediaPlayer.start()
     }
 
     //fun for updating the GameData
@@ -320,6 +340,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                         gameStatus = GameStatus.FINISHED
                         //for the 0,1,2 position
                         winner = filledPos[i[0]]
+
                     }
             }
 
@@ -332,5 +353,14 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             //and here we update the winner of the match in the GameStatus view
             updateGameData(this)
         }
+
     }
+
+     fun audio(){
+         //        calling media file
+         mediaPlayer = MediaPlayer.create(this,R.raw.game_over)
+         //        starting media that is audio
+         mediaPlayer.start()
+     }
+
 }

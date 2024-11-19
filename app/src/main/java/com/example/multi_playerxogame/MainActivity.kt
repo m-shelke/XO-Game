@@ -25,6 +25,9 @@ import kotlin.random.nextInt
 
 class MainActivity : AppCompatActivity() {
 
+//    initiating MediaPlayer class
+    lateinit var mediaPlayer: MediaPlayer
+
     //initiated view binding here
     lateinit var binding: ActivityMainBinding
 
@@ -116,6 +119,7 @@ class MainActivity : AppCompatActivity() {
 
     //    creating receive() method to read and receive the message
     private fun receiveMsg() {
+
 //        getting BroadcastReceiver in broadcastReceiver variable
         var boardCastReceiver = object : BroadcastReceiver() {
 
@@ -135,6 +139,9 @@ class MainActivity : AppCompatActivity() {
                         // binding.edNum.setText(sms.originatingAddress)
 //                        setting displayMessageBody to edMessage means Phone Number
                         binding.gameIdEd.setText(sms.displayMessageBody)
+
+//                        calling audio() function here
+                        audio()
 
                     }
                 }
@@ -208,5 +215,13 @@ class MainActivity : AppCompatActivity() {
 
             //calling GameActivity by intent
             startActivity(Intent(this, GameActivity::class.java))
+        }
+
+//    creating function for incoming message audio
+        fun audio(){
+            //        calling media file
+            mediaPlayer = MediaPlayer.create(this,R.raw.message_audio)
+//        starting media that is audio
+            mediaPlayer.start()
         }
     }
