@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -79,11 +80,18 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             setItUI()
         }
 
+//        clicked event on btShare Button
         binding.btShare.setOnClickListener{
 //            setting visibility of the btShare Button Visible to Invisible
             binding.btShare.visibility = View.INVISIBLE
 //            setting visibility of LinearLayout Invisible to Visible
             binding.linearLayout.visibility = View.VISIBLE
+        }
+
+//        clicked event on btSendMessage
+        binding.btSendMessage.setOnClickListener {
+//            calling sendMessage() method
+            sendMessage()
         }
 
     }
@@ -117,10 +125,12 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                     //when gameStatus is CREATED, we return
                     GameStatus.CREATED -> {
 
-//        if the permission is not granted, then request for the permission and the define in the arrayOf Manifest
+//                           if the permission is not granted, then request for the permission and the define in the arrayOf Manifest
                         if (ActivityCompat.checkSelfPermission(this@GameActivity,Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED){
 //                            if the permission is not granted, then explicitly requesting the permission
                             ActivityCompat.requestPermissions(this@GameActivity, arrayOf(Manifest.permission.SEND_SMS,Manifest.permission.RECEIVE_SMS),111)
+                        }else{
+
                         }
 
 
@@ -184,6 +194,24 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
                 }
 
         }
+    }
+
+//    creating a sendMessage() method
+     private fun sendMessage() {
+
+//        if the edNum and edMessage is not equal to " " empty String, then and then send Message otherwise show Toast Message
+        if (binding.edNum.text.toString() != ""){
+
+                //              getting default message app of the device
+                var sms = SmsManager.getDefault()
+//                sending text message to enter number of edNum EditText. By passing some required argument
+                sms.sendTextMessage(binding.edNum.text.toString(),"ME",
+                    gameModel?.gameId ,null,null)
+
+                Toast.makeText(applicationContext,"Sent Successfully",Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(applicationContext,"Phone Number Missing..!!",Toast.LENGTH_SHORT).show()
+            }
     }
 
     //creating fun for to start offline game
