@@ -224,4 +224,9 @@ class MainActivity : AppCompatActivity() {
 //        starting media that is audio
             mediaPlayer.start()
         }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
     }
+}
