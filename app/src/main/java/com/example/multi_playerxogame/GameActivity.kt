@@ -363,4 +363,20 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
          mediaPlayer.start()
      }
 
+//    paused the Audio, if the App get Paused by the User
+    override fun onPause() {
+        super.onPause()
+//       calling Pause method here
+        mediaPlayer.pause()
+    }
+
+//    Stopping Audio playing, when app get Stop by the User
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.stop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
