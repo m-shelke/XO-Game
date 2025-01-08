@@ -2,9 +2,14 @@ package com.example.multi_playerxogame
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.database.Cursor
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.telephony.SmsManager
 import android.view.View
 import android.widget.Toast
@@ -13,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.transition.Visibility
 import com.example.multi_playerxogame.databinding.ActivityGameBinding
 
 //implementing onClickListener to handle button click events
@@ -93,6 +99,17 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             binding.btShare.visibility = View.INVISIBLE
 //            setting visibility of LinearLayout Invisible to Visible
             binding.linearLayout.visibility = View.VISIBLE
+        }
+
+//        clicked event on btPickContact Button
+        binding.btPickContact.setOnClickListener {
+
+//            setting action on intent
+            var intent = Intent(Intent.ACTION_PICK)
+//            defining and setting contact intent on intent type
+            intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
+//            getting data from startActivityForResult by defining intent type and Request Code 100
+            startActivityForResult(intent,100)
         }
 
 //        clicked event on btSendMessage
@@ -362,21 +379,52 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
          //        starting media that is audio
          mediaPlayer.start()
      }
-
-//    paused the Audio, if the App get Paused by the User
-    override fun onPause() {
-        super.onPause()
-//       calling Pause method here
-        mediaPlayer.pause()
-    }
+//
+////    paused the Audio, if the App get Paused by the User
+//    override fun onPause() {
+//        super.onPause()
+////       calling Pause method here
+//        mediaPlayer.pause()
+//    }
 
 //    Stopping Audio playing, when app get Stop by the User
-    override fun onStop() {
-        super.onStop()
-        mediaPlayer.stop()
+//    override fun onStop() {
+//        super.onStop()
+//        mediaPlayer.stop()
+//    }
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+//    }
+
+
+    @SuppressLint("SetTextI18n")
+    @Deprecated("This method has been deprecated in favor of using the Activity Result API\n      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt\n      contracts for common intents available in\n      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for\n      testing, and allow receiving results in separate, testable classes independent from your\n      activity. Use\n      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}\n      with the appropriate {@link ActivityResultContract} and handling the result in the\n      {@link ActivityResultCallback#onActivityResult(Object) callback}.")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+//        if the requestCode == 100 and resultCode is OK, then bring data
+        if (requestCode == 100 && resultCode == Activity.RESULT_OK){
+//            data get in Uri and return it in contactUri variable
+            var contactUri : Uri = data?.data ?: return
+//            getting data in form of Array, that is Name and Number of the contact
+            var cols : Array<String> = arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER,ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
+//            fetch data using Cursor
+            var rs : Cursor? = contentResolver.query(contactUri,cols,null,null,null)
+
+//            moving Cursor in first to Contact List
+            if (rs?.moveToFirst()!!){
+//                setting contact number on edNum EditText
+                binding.edNum.setText(rs.getString(0))
+
+                //            setting visibility of the tvContactName TextView on btPickContact Button
+               binding.tvContactName.visibility = View.VISIBLE
+
+//                setting contact name on tvContactName TextView
+                var contactName = rs.getString(1)
+                binding.tvContactName.text=("ID Sent To : $contactName")
+            }
+        }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.google.gms.google.services)
 }
 
+
 android {
     namespace = "com.example.multi_playerxogame"
     compileSdk = 34
@@ -54,4 +55,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+//    GIF dependency
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.29")
+    implementation(kotlin("script-runtime"))
 }
