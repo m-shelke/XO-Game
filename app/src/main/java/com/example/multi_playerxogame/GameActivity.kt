@@ -110,6 +110,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
 //            getting data from startActivityForResult by defining intent type and Request Code 100
             startActivityForResult(intent,100)
+
         }
 
 //        clicked event on btSendMessage

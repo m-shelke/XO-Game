@@ -11,7 +11,6 @@ import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.provider.Telephony
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -36,23 +35,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        //                           if the permission is not granted, then request for the permission and the define in the arrayOf Manifest
+        //                           if the RECEIVE_SMS & SEND_SMS permission is not granted, then request for the permission and get in the arrayOf Manifest
         if (ActivityCompat.checkSelfPermission(
                 this@MainActivity,
                 Manifest.permission.RECEIVE_SMS
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            //                            if the permission is not granted, then explicitly requesting the permission
+            //                            if the permission is not granted, then explicitly requesting the permission from user
             ActivityCompat.requestPermissions(
                 this@MainActivity,
                 arrayOf(Manifest.permission.SEND_SMS, Manifest.permission.RECEIVE_SMS),
                 111
             )
         } else {
+//            else RECEIVE_SMS, and calling receiveMsg() method
             receiveMsg()
         }
 
-        //inflating xml.layout
+        //inflating xml.layout with .java code
         binding = ActivityMainBinding.inflate(layoutInflater)
         //binding root of the xml.layout
         setContentView(binding.root)
@@ -247,8 +247,8 @@ class MainActivity : AppCompatActivity() {
 //        mediaPlayer.pause()
 //    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaPlayer.release()
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        mediaPlayer.release()
+//    }
 }
